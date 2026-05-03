@@ -19,10 +19,10 @@ services:
     depends_on:
     - redis
     - catalogue
-  frountend:
-    build: ./frountend
-    image: surendra3207/frountend
-    container_name: frountend
+  frontend:
+    build: ./frontend
+    image: surendra3207/frontend
+    container_name: frontend
     ports:
     - "80:80"
   mongodb:
