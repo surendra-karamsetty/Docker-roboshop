@@ -37,6 +37,14 @@ services:
     build: ./redis
     image: surendra3207/redis:1.0.0
     container_name: redis
+  mysql:
+    build: ./mysql
+    image: surendra3207/mysql:1.0.0
+    container_name: mysql
+  rabbitmq:
+    build: ./rabbitmq
+    image: surendra3207/rabbitmq:1.0.0
+    container_name: rabbitmq
 
 networks:
   default:
