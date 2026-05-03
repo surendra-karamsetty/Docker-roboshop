@@ -19,6 +19,12 @@ services:
     depends_on:
     - redis
     - catalogue
+  shipping:
+    build: ./shipping
+    image: surendra3207/shipping:1.0.0
+    container_name: shipping
+    depends_on:
+    - mysql
   frontend:
     build: ./frontend
     image: surendra3207/frontend:1.0.0
@@ -29,6 +35,7 @@ services:
     - catalogue
     - user
     - cart
+    - shipping
   mongodb:
     build: ./mongodb
     image: surendra3207/mongodb:1.0.0
