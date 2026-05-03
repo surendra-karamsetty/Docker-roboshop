@@ -23,7 +23,7 @@ services:
     build: ./frountend
     image: surendra3207/frountend
     container_name: frountend
-    port:
+    ports:
     - "80:80"
   mongodb:
     build: ./mongodb
