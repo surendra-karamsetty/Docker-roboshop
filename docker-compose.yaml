@@ -25,6 +25,10 @@ services:
     container_name: frontend
     ports:
     - "80:80"
+    depends_on:
+    - catalogue
+    - user
+    - cart
   mongodb:
     build: ./mongodb
     image: surendra3207/mongodb:1.0.0
