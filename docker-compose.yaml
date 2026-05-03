@@ -1,8 +1,8 @@
 services:
   catalogue:
     build:
-      dockerfile: catalogue.Dockerfile
-    image: surendra3207/catalogue:1.0.0
+      dockerfile: catalogue.Dockerfile # it move to catalogue directory 
+    image: surendra3207/catalogue:1.0.0 # it will build the image like docker build -t surendra3207/catalogue:1.0.0 .
     container_name: catalogue
     depens_on:
     - mongodb
@@ -15,7 +15,7 @@ services:
     - redis
   mongodb:
     build:
-      dockerfile: mongodb.Dockerfile
+      dockerfile: mongodb.Dockerfile 
     image: surendra3207/mongodb:1.0.0
     container_name: mongodb
   redis:
@@ -23,3 +23,9 @@ services:
       dockerfile: redis.Dockerfile
     image: surendra3207/redis:1.0.0
   container_name: redis  
+
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    external: false #if true you need to create network manually 
