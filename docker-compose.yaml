@@ -25,6 +25,23 @@ services:
     container_name: shipping
     depends_on:
     - mysql
+    - cart
+  payment:
+    build: ./payment
+    image: surendra3207/payment
+    container_name: payment
+    environment:
+      CART_HOST: "cart"
+      CART_PORT: "8080"
+      USER_HOST: "user"
+      USER_PORT: "8080"
+      AMQP_HOST: "rabbitmq"
+      AMQP_USER: "roboshop"
+      AMQP_PASS: "roboshop123"
+    depends_on:
+    - rabbitmq
+    - cart 
+    - user
   frontend:
     build: ./frontend
     image: surendra3207/frontend:1.0.0
@@ -36,6 +53,7 @@ services:
     - user
     - cart
     - shipping
+    - payment
   mongodb:
     build: ./mongodb
     image: surendra3207/mongodb:1.0.0
