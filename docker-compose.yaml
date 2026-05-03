@@ -14,14 +14,14 @@ services:
     - mongodb
   cart:
     build: ./cart
-    image: surendra3207/cart
+    image: surendra3207/cart:1.0.0
     container_name: cart
     depends_on:
     - redis
     - catalogue
   frontend:
     build: ./frontend
-    image: surendra3207/frontend
+    image: surendra3207/frontend:1.0.0
     container_name: frontend
     ports:
     - "80:80"
@@ -31,7 +31,7 @@ services:
     container_name: mongodb
   redis:
     build: ./redis
-    image: surendra3207/redis
+    image: surendra3207/redis:1.0.0
     container_name: redis
 
 networks:
