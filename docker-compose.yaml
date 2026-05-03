@@ -5,10 +5,34 @@ services:
     container_name: catalogue
     depends_on:
     - mongodb
+  user:
+    build: ./user
+    image: surendra3207/user:1.0.0
+    container_name: user
+    depends_on:
+    - redis
+    - mongodb
+  cart:
+    build: ./cart
+    image: surendra3207/cart
+    container_name: cart
+    depends_on:
+    - redis
+    - catalogue
+  frountend:
+    build: ./frountend
+    image: surendra3207/frountend
+    container_name: frountend
+    port:
+    - "80:80"
   mongodb:
     build: ./mongodb
     image: surendra3207/mongodb:1.0.0
     container_name: mongodb
+  redis:
+    build: ./redis
+    image: surendra3207/redis
+    container_name: redis
 
 networks:
   default:
