@@ -1,0 +1,25 @@
+services:
+  catalogue:
+    build:
+      dockerfile: catalogue.Dockerfile
+    image: surendra3207/catalogue:1.0.0
+    container_name: catalogue
+    depens_on:
+    - mongodb
+  user:
+    build:
+      dockerfile: Dockerfile.user
+    image: surendra3207/user:1.0.0
+    container_name: user
+    depens_on:
+    - redis
+  mongodb:
+    build:
+      dockerfile: mongodb.Dockerfile
+    image: surendra3207/mongodb:1.0.0
+    container_name: mongodb
+  redis:
+    build:
+      dockerfile: redis.Dockerfile
+    image: surendra3207/redis:1.0.0
+  container_name: redis  
