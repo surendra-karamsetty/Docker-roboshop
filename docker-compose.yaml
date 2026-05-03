@@ -6,23 +6,11 @@ services:
     container_name: catalogue
     depends_on:
     - mongodb
-  user:
-    build:
-      dockerfile: user.Dockerfile
-    image: user:1.0.0
-    container_name: user
-    depends_on:
-    - redis
   mongodb:
     build:
       dockerfile: mongodb.Dockerfile 
     image: mongodb:1.0.0
     container_name: mongodb
-  redis:
-    build:
-      dockerfile: redis.Dockerfile
-    image: redis:1.0.0
-    container_name: redis  
 
 networks:
   default:
