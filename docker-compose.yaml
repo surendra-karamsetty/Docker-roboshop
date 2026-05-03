@@ -2,16 +2,16 @@ services:
   catalogue:
     build:
       dockerfile: catalogue.Dockerfile # it move to catalogue directory 
-    image: surendra3207/catalogue:1.0.0 # it will build the image like docker build -t surendra3207/catalogue:1.0.0 .
+    image: surendra3207/catalogue:1.0.0 # it will build the image like docker build -t surendra3207/catalogue:1.0.0
     container_name: catalogue
-    depends_on:
+    depens_on:
     - mongodb
   user:
     build:
       dockerfile: user.Dockerfile
     image: surendra3207/user:1.0.0
     container_name: user
-    depends_on:
+    depens_on:
     - redis
   mongodb:
     build:
@@ -22,7 +22,7 @@ services:
     build:
       dockerfile: redis.Dockerfile
     image: surendra3207/redis:1.0.0
-  container_name: redis  
+    container_name: redis  
 
 networks:
   default:
